@@ -42,7 +42,7 @@ const init = () => {
 			deployment_id: deploymentId,
 			state: status,
 			log_url: LOG_URL,
-			environment_url: url || LOG_URL,
+			environment_url: url || "",
 			description: 'Starting deployment to Vercel'
 		})
 
