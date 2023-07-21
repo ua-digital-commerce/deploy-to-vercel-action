@@ -16085,6 +16085,22 @@ const init = () => {
 	const updateDeployment = async (status, url) => {
 		if (!deploymentId) return
 
+		const description = (() => {
+			if (status === 'success') {
+				return 'The deployment to Vercel has completed successfully.'
+			}
+
+			if (status === 'failure') {
+				return 'The attempt to deploy to Vercel failed.'
+			}
+
+			if (status === 'pending') {
+				return 'Attempting to deploy to Vercel.'
+			}
+
+			return 'An unknown status was received.'
+		})()
+
 		const deploymentStatus = await client.repos.createDeploymentStatus({
 			owner: USER,
 			repo: REPOSITORY,
@@ -16092,7 +16108,7 @@ const init = () => {
 			state: status,
 			log_url: LOG_URL,
 			environment_url: url || undefined,
-			description: 'Starting UA deployment to Vercel'
+			description: description
 		})
 
 		return deploymentStatus.data
@@ -16172,7 +16188,6 @@ const init = () => {
 module.exports = {
 	init
 }
-
 
 /***/ }),
 
