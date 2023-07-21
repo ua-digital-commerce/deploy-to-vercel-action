@@ -57,7 +57,7 @@ const init = () => {
 			repo: REPOSITORY,
 			deployment_id: deploymentId,
 			state: status,
-			log_url: LOG_URL,
+			log_url: url || LOG_URL,
 			environment_url: url || undefined,
 			description: description
 		})
