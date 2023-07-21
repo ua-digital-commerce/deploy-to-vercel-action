@@ -16073,7 +16073,7 @@ const init = () => {
 			ref: REF,
 			required_contexts: [],
 			environment: GITHUB_DEPLOYMENT_ENV || (PRODUCTION ? 'Production' : 'Preview'),
-			description: 'UA Deploy to Vercel',
+			description: 'Deploy to Vercel',
 			auto_merge: false
 		})
 
@@ -16107,7 +16107,7 @@ const init = () => {
 
 		if (data.length < 1) return
 
-		const comment = data.find((comment) => comment.body.includes('This UA pull request has been deployed to Vercel.'))
+		const comment = data.find((comment) => comment.body.includes('This pull request has been deployed to Vercel.'))
 		if (comment) {
 			await client.issues.deleteComment({
 				owner: USER,
