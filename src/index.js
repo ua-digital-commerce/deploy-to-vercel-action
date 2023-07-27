@@ -111,7 +111,7 @@ const run = async () => {
 			core.info(`Assigning custom domains to Vercel deployment`)
 
 			if (!Array.isArray(ALIAS_DOMAINS)) {
-				throw new Error(`invalid type for PR_PREVIEW_DOMAIN`)
+				throw new Error(`invalid type for ALIAS_DOMAINS`)
 			}
 
 			for (let i = 0; i < ALIAS_DOMAINS.length; i++) {
